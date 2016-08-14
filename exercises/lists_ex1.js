@@ -1,3 +1,5 @@
+// Write a function that inserts an element into a list only if the element to be inserted is larger than any of the elements currently in the list. Larger can mean either greater than when working with numeric values, or further down in the alphabet, when working with textual values.
+
 function List() {
   this.dataStore = [];
   // mutator methods
@@ -20,6 +22,20 @@ function List() {
   this.getPos = () => this.dataStore[this.pos];
   this.loopFront = function(fn){for(this.firstPos();this.currentPos() < this.length();this.nextPos()){fn(this.getPos())}}
   this.loopBack = function(fn){for(this.lastPos();this.currentPos() >= 0;this.previousPos()){fn(this.getPos())}}
+  // exercise
+  this.insertLarge = insertIfLarger;
+
+  function insertIfLarger(element){
+    switch (typeof(element)){
+      case "string":
+        break;
+      case "number":
+        break;
+      default:
+        throw new Error('wrong datatype');
+        break;
+    }
+  }
 }
 
 var names = new List();
@@ -29,4 +45,5 @@ names.append("Ray");
 names.append("Barbara");
 names.append('Slice');
 names.print();
-debugger;
+//debugger;
+names.insertLarge(()=>{});
