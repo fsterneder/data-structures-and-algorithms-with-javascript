@@ -1,7 +1,9 @@
+// Lists
+
 function List() {
   this.dataStore = [];
   // mutator methods
-  this.add = (...element) => {for(i in element){this.dataStore[this.dataStore.length] = element[i]}}
+  this.add = (...element) => {for(let i in element){this.dataStore[this.dataStore.length] = element[i]}}
   this.remove = (element) => this.dataStore.splice(this.find(element),1);
   this.insertAfter = (element,after) => this.dataStore.splice(this.find(after)+1,0,element);
   this.clear = () => this.dataStore = [];
