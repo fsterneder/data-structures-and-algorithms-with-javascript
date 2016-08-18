@@ -15,13 +15,19 @@ class Stack {
 }
 
 function balancePar(expr){
+  let pFlag = false, nFlag = 0
   let s = new Stack()
-  for(let i of expr.split('')){
+  for( let i of expr.split('') ){
+    if( i === "(" ){ pFlag = true }
+    else if( pFlag && !Number.isNaN(Number.parseInt(i)) ){ nFlag++ }
+    else if( nFlag > 1 ) { i == ")" ? null : s.push(')');pFlag = false;nFlag = 0}
     s.push(i)
   }
-  return s.data  
+  return s.data.join('')
 }
 
 console.log(
-  balancePar('(1+2)*3')
+  balancePar('(1+2*3*(4*5+3)')
 )
+
+// TODO: Maybe check overall parentheses count & position to fix the problem of far reaching parentheses?
