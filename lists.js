@@ -24,11 +24,12 @@ function List() {
   this.loopBack = function(fn){for(this.lastPos();this.currentPos() >= 0;this.previousPos()){fn(this.getPos())}}
 }
 
+module.exports = List;
+
 var names = new List();
 
-names.append("Cynthia");
-names.append("Ray");
-names.append("Barbara");
-names.append('Slice');
+names.add("Cynthia");
+names.add("Ray");
+names.add("Barbara");
+names.add('Slice');
 names.print();
-debugger;

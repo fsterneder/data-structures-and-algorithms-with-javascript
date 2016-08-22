@@ -11,6 +11,8 @@ class Stack {
   }
 }
 
+module.exports = Stack;
+
 // Multiple Base Conversions
 function multiBase(n,b){
   let s = new Stack()
