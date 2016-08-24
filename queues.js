@@ -11,7 +11,7 @@ class Queue {
   }
 }
 
-module.exports = Queue
+module.exports.Queue = Queue
 
 function radixSort(toSort){
   let bin = []
@@ -28,5 +28,21 @@ function radixSort(toSort){
   console.log(bin.toString())
 }
 
-//radixSort([22,23,95,45,48,99,92,20,01,34,59,23,11,56,62,91])
-radixSort([45,72,93,51,21,16,70,41,27,31])
+class PriorityQ {
+  constructor(){
+    this.data = []
+    this.enqueue = (element) => this.data.push(element)
+    this.dequeue = () => this.data.reverse().splice(this.data.indexOf(Math.min.apply(null,this.data.map(a=>a.code))))
+  }
+}
+
+module.exports.PriorityQ = PriorityQ
+
+class Patient{
+  constructor(name,code){
+    this.name = name
+    this.code = code
+  }
+}
+
+module.exports.Patient = Patient
