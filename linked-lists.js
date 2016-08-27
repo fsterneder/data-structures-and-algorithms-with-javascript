@@ -73,13 +73,3 @@ class LinkedList {
 }
 
 module.exports = LinkedList
-
-// test only
-var a = new LinkedList()
-a.insert('first')
-a.insert('second')
-a.insert('third')
-a.insert('fifth')
-console.log(a.display())
-
-debugger
