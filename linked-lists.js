@@ -10,6 +10,7 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = new Node('head')
+    this.currentNode = this.head
     this.find = (target) => {
       function find(target,node) {
         if(node.element == target) {return node}

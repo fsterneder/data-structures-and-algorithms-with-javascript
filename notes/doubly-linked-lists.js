@@ -50,10 +50,3 @@ class DoublyLL {
     }
   }
 }
-
-// test purpose only
-
-let a = new DoublyLL
-a.insert('first')
-a.insert('second')
-debugger
