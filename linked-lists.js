@@ -58,17 +58,12 @@ class LinkedList {
       }
     }
     this.display = () => {
-      let outp = []
-      function display(node) {
-        if(node.element !== 'head') {
-          outp.push((outp.length + 1) + ") " + node.element) 
-        }
-        if(node.next == null){
-          return outp
-        }
-        else {return display(node.next)}
+      function displayN(node){
+        if(node.next == null) {console.log(node.element);return}
+        else if(node.element == 'head'){return displayN(node.next)}
+        else {console.log(node.element);return displayN(node.next)}
       }
-      return display(this.head).join('\n')
+      displayN(this.head)
     }
   }
 }

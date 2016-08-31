@@ -50,3 +50,5 @@ class DoublyLL {
     }
   }
 }
+
+module.exports = DoublyLL
