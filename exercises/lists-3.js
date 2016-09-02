@@ -2,14 +2,14 @@
 // Create a list of at least 10 Person objects.
 // Write a function that displays all the people in the list of the same gender.
 
+let List = require('../list')
+
 class Person{
   constructor (name,gender){
     this.name = name
     this.gender = gender
   }
 }
-
-let List = require('../lists')
 
 let names = ['John','Bon','Jovey','Heinricht','Heiny','Georg','Marmel','Ade','Ketuschu','Domio','Okkk','Rando','Exoo','Moboo','Yaby','Nobo','Karlsi','Mabondo','Numami','Esthabo','Minta','Haur']
 let gender = ['Male','Female','Transsexual Male','Transsexual Female','Metrosexual Male','Metrosexual Female','Other','None','Prefer Not to Say']

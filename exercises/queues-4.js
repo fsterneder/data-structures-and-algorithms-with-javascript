@@ -4,8 +4,14 @@
 // b. Patient is seen by doctor.
 // c. Display list of patients waiting to be seen. 
 
-const PriorityQ = require('../queues').PriorityQ
-const Patient = require('../queues').Patient
+const PriorityQ = require('../notes/priority-queue')
+
+class Patient{
+  constructor(name,code){
+    this.name = name
+    this.code = code
+  }
+}
 
 const rl = require('readline').createInterface({
   input: process.stdin,

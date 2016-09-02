@@ -1,6 +1,6 @@
 // Write a program that uses a singly linked list to keep track of a set of test grades entered interactively into the program.
 
-const LinkedList = require('../linked-lists')
+const LinkedList = require('../linked-list')
 
 let list = new LinkedList()
 

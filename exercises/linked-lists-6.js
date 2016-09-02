@@ -2,7 +2,7 @@
 // The program should determine the number of the last two people left in the circle.
 // Use a circularly linked list to solve the problem.
 
-let CircularlyLL = require('../notes/circularly-linked-lists')
+let CircularlyLL = require('../notes/circularly-linked-list')
 
 function circle(mth,peopleArray) {
   let circ = new CircularlyLL()

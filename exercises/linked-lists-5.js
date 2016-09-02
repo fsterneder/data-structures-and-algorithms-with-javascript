@@ -1,6 +1,6 @@
 // Rewrite your solution to Example 6-4 using a doubly linked list.
 
-const DoublyLL = require('../notes/doubly-linked-lists')
+const DoublyLL = require('../notes/doubly-linked-list')
 
 let list = new DoublyLL()
 

@@ -9,7 +9,7 @@
 // Write a program that uses a singly linked list to keep track of a set of test grades
 
 
-let LinkedList = require('../linked-lists')
+let LinkedList = require('../linked-list')
 
 LinkedList.prototype.show = function(){
   return this.currentNode
