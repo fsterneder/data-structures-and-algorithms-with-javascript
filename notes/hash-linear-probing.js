@@ -10,18 +10,29 @@ class HashTable {
   hash(data) {return data.toString().split('').map(a=>a.charCodeAt(0)).reduce((a,b) => a+(b*this.horner)) % this.table.length}
   put(key,element) {
     let pos = this.hash(key)
-    if(table[pos] != undefined) {
+    if(this.table[pos] != undefined) {
+      while(this.table[pos] != undefined){
+        pos <= this.table.length ? pos++ : pos--
       }
+      this.table[pos] = key
+      this.values[pos] = element
     } else {
       this.table[pos] = key
       this.values[pos] = element
     }
   }
-  get(key) {return this.table[this.hash(key)]}
+  get(key) {
+    let pos = this.hash(key)
+    if(this.table[pos] != key) {
+      while(this.table[pos] != key){
+        pos <= this.table.length ? pos++ : pos--
+      }
+      return this.values[pos]
+    } else {
+      return this.values[pos]
+    }
+  }
   show() {let outp=[];for(let [i,el] of this.table.entries()) {el != undefined ? outp.push(`${i} : ${el}`) : null} ;return outp}
 }
 
-// TP
-var a = new HashTable(137,31)
-
-debugger
+module.exports = HashTable
