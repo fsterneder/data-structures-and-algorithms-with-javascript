@@ -3,21 +3,20 @@
 
 const HashTable = require('../notes/hash-linear-probing.js')
 
+let table = new HashTable(307), words = readFromFile('hashing-3.txt').filter(a=> a != "")
+
 debugger
 
-let table = new HashTable(), words = readFromFile('hashing-3.txt')
-
 for(let el of words){
-  console.log(table.get(el))
-  if(!table.get(el)){
-    table.put(el,0)
+  if(table.get(el) == false){
+    table.put(el,1)
   } else {
-    let temp = Number.parseInt(table.get(el))
-    table.mod(el,temp += 1)
+    let temp = Number.parseInt(table.get(el)) + 1
+    table.mod(el,temp)
   }
 }
 
-console.log(table.show() + '\n alive')
+debugger
 
 function readFromFile(file) {
   let words = require('fs').readFileSync('/home/user/Projects/mcmillan/exercises/'+file,{encoding:'utf-8'})

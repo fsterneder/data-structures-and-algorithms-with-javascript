@@ -22,27 +22,23 @@ class HashTable {
     }
   }
   get(key) {
-    let pos = this.hash(key)
-    let rgx = new RegExp(key)
-    if(!rgx.test(this.show())) {
-      return false
-    } else if(this.table[pos] != key) {
-      while(this.table[pos] != key){
-        pos <= this.table.length ? pos++ : pos = 0
+    let pos = this.hash(key), turn = 0
+    if(this.table[pos] != key) {
+      while(this.table[pos] != key && turn < 20){
+        pos <= this.table.length ? pos++ : pos = 0;
+        turn++
       }
-      return this.values[pos]
+      return this.values[pos] || false
     } else {
       return this.values[pos]
     }
   }
   mod(key,value){
-    let pos = this.hash(key)
-    let rgx = new RegExp(key)
-    if(!rgx.test(this.show())) {
-      return false
-    } else if(this.table[pos] != key) {
-      while(this.table[pos] != key){
-        pos <= this.table.length ? pos++ : pos--
+    let pos = this.hash(key), turn = 0
+    if(this.table[pos] != key) {
+      while(this.table[pos] != key && turn < 20){
+        pos <= this.table.length ? pos++ : pos = 0;
+        turn++
       }
       this.values[pos] = value
       return true
