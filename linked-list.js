@@ -58,14 +58,16 @@ class LinkedList {
       }
     }
     this.display = () => {
+      let outp = []
       function displayN(node){
-        if(node.next == null) {console.log(node.element);return}
+        if(node.next == null) {outp.push(node.element);return}
         else if(node.element == 'head'){return displayN(node.next)}
-        else {console.log(node.element);return displayN(node.next)}
+        else {outp.push(node.element);return displayN(node.next)}
       }
       displayN(this.head)
+      return outp
     }
   }
 }
 
-module.exports = LinkedList
+module.exports = {LinkedList: LinkedList, Node: Node}
