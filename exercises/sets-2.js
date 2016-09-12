@@ -36,13 +36,3 @@ class Set {
     return this.data.display().filter(a => set.data.display().indexOf(a) < 0)
   }
 }
-
-a = new Set()
-b = new Set()
-a.add('a')
-a.add('b')
-a.add('c')
-b.add('c')
-b.add('d')
-b.add('e')
-debugger
