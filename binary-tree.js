@@ -1,5 +1,9 @@
 // Binary Tree & Binary Search Tree
 
+// TODO
+// - Allow Duplicates
+// - Remove a node with 2 children
+
 class Node {
   constructor(data,left=null,right=null){
     this.data = data
@@ -97,7 +101,6 @@ class BinarySearchTree {
     }
   }
   find(target){
-    debugger
     return searchBST(this.root)
     
     function searchBST(node){
@@ -111,12 +114,43 @@ class BinarySearchTree {
       }
     }
   }
+  remove(target){
+    return removeNode(this.root,null)
+    
+    function removeNode(node,_parent){
+      if(node !== null){
+        if(node.data === target && node.left === null && node.right === null){
+          _parent.data > target ? _parent.left = null :
+          _parent.right = null
+          return true
+        } else if (node.data === target && (node.left === null || node.right === null)){
+          if(_parent.data < target){_parent.right = node.right}
+          else if(_parent.data > target){_parent.left = node.left}
+        } else if (node.data === target && node.left != null && node.right != null){
+          //todo
+          return false
+        }
+        else {
+          if(target < node.data){return removeNode(node.left,node)} 
+          else if(target > node.data){return removeNode(node.right,node)}
+        }
+      }
+    }
+  }
 }
 
+module.exports = {BinarySearchTree: BinarySearchTree,Node: Node}
+
 // TP
+/*
 let a = new BinarySearchTree()
 a.insert(50)
 a.insert(12)
 a.insert(3)
+a.insert(100)
+a.insert(160)
+a.insert(60)
 a.find(3)
+a.remove(100)
 debugger
+*/
