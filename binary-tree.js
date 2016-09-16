@@ -1,9 +1,5 @@
 // Binary Tree & Binary Search Tree
 
-// TODO
-// - Allow Duplicates
-// - Remove a node with 2 children
-
 class Node {
   constructor(data,left=null,right=null){
     this.data = data
@@ -22,7 +18,7 @@ class BinarySearchTree {
     else{return traverseBST(this.root)}
 
     function traverseBST(currNode){
-      if(insertNode.data < currNode.data){
+      if(insertNode.data <= currNode.data){
         if(currNode.left === null){return currNode.left = insertNode}
         else {return traverseBST(currNode.left)}
       }
@@ -47,7 +43,7 @@ class BinarySearchTree {
       return data
     }
   }
-  showOrder(){
+  show(){
     let outp = []
     showInOrder(this.root)
     return outp
@@ -84,16 +80,16 @@ class BinarySearchTree {
       }
     }
   }
-  min(){
-    return getMinLeaf(this.root)
+  min(node=this.root){
+    return getMinLeaf(node)
 
     function getMinLeaf(node){
       if(node.left == null){return node}
       else {return getMinLeaf(node.left)}
     }
   }
-  max(){
-    return getMaxLeaf(this.root)
+  max(node=this.root){
+    return getMaxLeaf(node)
 
     function getMaxLeaf(node){
       if(node.right == null){return node}
@@ -107,7 +103,7 @@ class BinarySearchTree {
       if(node !== null){
         if(node.data === target){return node}
         else {
-          if(node.data > target){return searchBST(node.left)}
+          if(node.data >= target){return searchBST(node.left)}
           else if(node.data < target){return searchBST(node.right)}
           else {return false}
         }
@@ -115,42 +111,30 @@ class BinarySearchTree {
     }
   }
   remove(target){
-    return removeNode(this.root,null)
-    
-    function removeNode(node,_parent){
-      if(node !== null){
-        if(node.data === target && node.left === null && node.right === null){
-          _parent.data > target ? _parent.left = null :
-          _parent.right = null
-          return true
-        } else if (node.data === target && (node.left === null || node.right === null)){
-          if(_parent.data < target){_parent.right = node.right}
-          else if(_parent.data > target){_parent.left = node.left}
-        } else if (node.data === target && node.left != null && node.right != null){
-          //todo
-          return false
-        }
-        else {
-          if(target < node.data){return removeNode(node.left,node)} 
-          else if(target > node.data){return removeNode(node.right,node)}
-        }
+    root = removeNode.call(this,this.root,target)
+
+    function removeNode(node, data) {
+      if(node == null) {return null}
+
+      if(data == node.data) {
+        if (node.left == null && node.right == null) {return null}
+        if (node.left == null) {return node.right}
+        if (node.right == null) {return node.left}
+        var tempNode = this.min(node.right)
+        node.data = tempNode.data
+        node.right = removeNode.call(this,node.right, tempNode.data)
+        return node
+      }
+      else if (data < node.data) {
+        node.left = removeNode.call(this,node.left, data)
+        return node
+      }
+      else {
+        node.right = removeNode.call(this,node.right, data)
+        return node
       }
     }
   }
 }
 
 module.exports = {BinarySearchTree: BinarySearchTree,Node: Node}
-
-// TP
-/*
-let a = new BinarySearchTree()
-a.insert(50)
-a.insert(12)
-a.insert(3)
-a.insert(100)
-a.insert(160)
-a.insert(60)
-a.find(3)
-a.remove(100)
-debugger
-*/
