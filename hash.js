@@ -1,4 +1,4 @@
-// Hashing
+// Chapter 8 - Hashing
 
 class HashTable {
   constructor(size,h){

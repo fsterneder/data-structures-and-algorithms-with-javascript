@@ -1,4 +1,4 @@
-// Linked List
+// Chapter 6 - Linked Lists
 
 class Node {
   constructor(element) {

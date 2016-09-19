@@ -1,5 +1,4 @@
-// Sets
-'set strict'
+// Chapter 9 - Sets
 
 class Set {
   constructor() {

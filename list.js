@@ -1,4 +1,4 @@
-// Lists
+// Chapter 3 - Lists
 
 class List {
   constructor(){

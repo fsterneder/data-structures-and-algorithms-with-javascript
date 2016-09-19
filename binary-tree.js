@@ -1,4 +1,4 @@
-// Binary Tree & Binary Search Tree
+// Chapter 10 - Binary Tree & Binary Search Tree
 
 class Node {
   constructor(data,left=null,right=null){

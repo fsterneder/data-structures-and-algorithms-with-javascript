@@ -1,4 +1,4 @@
-// Dictionary
+//  Chapter 7 - Dictionary
 
 class Dictionary {
   constructor() {

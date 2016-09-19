@@ -1,4 +1,4 @@
-// Stacks
+// Chapter 4 - Stacks
 
 class Stack {
   constructor(){
