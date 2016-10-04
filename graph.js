@@ -38,7 +38,6 @@ class Graph {
     }
   }
 }
-
 // TP
 a = new Graph(5)
 a.addEdge(0,1)
