@@ -1,9 +1,9 @@
 'use strict'
-// A postfix expression evaluator works on arithmetic expressions taking the following form: 
-// op1 op2 operator 
+// A postfix expression evaluator works on arithmetic expressions taking the following form:
+// op1 op2 operator
 // Using two stacks — one for the operands and one for the operators — design and implement a JavaScript function that converts infix expressions to postfix expressions, and then use the stacks to evaluate the expression.
 
-let Stack = require('../list')
+let Stack = require('../stack')
 
 function postFix(expr){
   let op = new Stack(),num = new Stack(),outp = 0;
